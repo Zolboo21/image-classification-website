@@ -1,36 +1,43 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import './App.css';
+import '../App.css';
 
 function Main() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [images, setImages] = useState([]);
+  const [image, setImage] = useState(null);
+  const [dragging, setDragging] = useState(false);
 
-  const handleSearch = async () => {
-    const response = await fetch(`https://api.unsplash.com/search/photos?query=${searchTerm}&client_id=YOUR_ACCESS_KEY`);
-    const data = await response.json();
-    setImages(data.results);
+  const handleDrop = async (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = async () => {
+      const base64data = reader.result;
+      setImage(base64data);
+    };
+    setDragging(false);
+  };
+  
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setDragging(true);
+  };
+
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    setDragging(false);
   };
 
   return (
-    <div>
-      <h1>Image Search</h1>
-      <input type="text" id="searchInput" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-      <button id="searchButton" onClick={handleSearch}>Search</button>
+    <div className={dragging ? "dragging" : ""} onDrop={handleDrop} onDragOver={handleDragOver} onDragLeave={handleDragLeave}>
+      <h1>Drag and Drop Image Search</h1>
+      <div className="dropzone">
+        <p>Drop an image here to search for similar images</p>
+      </div>
       <div className="image-container">
-        {images.map((image) => (
-          <img key={image.id} src={image.urls.regular} alt={image.alt_description} />
-        ))}
+        {image && <img src={image} alt="Dropped Image" />}
       </div>
     </div>
   );
 }
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
 export default Main;
