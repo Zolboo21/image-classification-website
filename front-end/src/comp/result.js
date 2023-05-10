@@ -9,6 +9,6 @@ function Result(){
             </iframe>
         </div>
     )
-}
+} 
 
 export default Result;
