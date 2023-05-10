@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import '../Res.css';
 
 function Result(){
+
     return (
         <div className = "main-page">
-            <iframe className = "image">
+            <div className="slidebar">
 
-            </iframe>
+            </div>
+            <div className="image-frame">
+                <canvas className="image"></canvas>
+            </div>
         </div>
     )
 } 
