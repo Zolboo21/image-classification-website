@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../Res.css';
+import '../App.css';
 
 function Result() {
     const { imageUrl } = useParams();
@@ -19,7 +19,7 @@ function Result() {
     return (
         <div className="main-page"> 
             <div className="slidebar">
-                <Slidebar />        //슬라이드바 구현
+                <Sidebar />
             </div>
             <div className="image-frame">
                 <canvas className="image">
