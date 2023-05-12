@@ -19,7 +19,7 @@ function Result() {
     return (
         <div className="main-page"> 
             <div className="slidebar">
-                <Sidebar />
+            
             </div>
             <div className="image-frame">
                 <canvas className="image">
