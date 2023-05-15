@@ -11,8 +11,6 @@ function App() {
           <Main />
         </div>
       </div>
-
-
     </div>
   );
 }
