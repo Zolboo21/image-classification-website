@@ -6,11 +6,15 @@ import Sidebar from './comp/Sidebar';
 function App() { 
   return (
     <div className="App">
-      <Main />
-      <Sidebar width={320}>
-        <Contact />
-      </Sidebar>
-      <Result />
+      <div className="conatiner">
+        <Sidebar />
+        <div className="others">
+          <Main />
+          <Result />
+          </div>
+      </div>
+      
+      
     </div>
   );
 }

@@ -66,48 +66,55 @@ img:hover {
 }
 
 /* Sidebar.css */
-.container {
-  background-color: #E3ECF1;
-}
-
 .sidebar {
-  background-color: #E3ECF1;
-  border-left: 4px solid #202020;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  transition: 0.4s ease;
-  color: #202020;
-  height: 100%;
-  z-index: 99;
+  flex: 1;
+  height: calc(100vh);
+  background-color: #F4F692;
+
+  position: sticky;
+  top: 50px;
 }
 
-.button {
-  position: relative;
-  left: -50px;
-  top: 10px;
-  width: 40px;
-  height: 40px;
-  z-index: 99;
-  transition: 0.8s ease;
-  border: 2px solid #202020;
-  border-radius: 40px;
-  overflow: hidden;
+.sidebarWrapper {
+  padding: 20px;
+  color: #555;
 }
 
-.openBtn {
-  width: 100%;
-  height: 100%;
+.sidebarMenu {
+  margin-bottom: 2rem;
 }
 
-.content {
-  padding: 40px 40px 0 20px;
-  position: relative;
-  width: 100%;
+.sidebarTitle {
+  font-size: 0.9rem;
+  color: rgb(22, 11, 11);
+  background-color: #FAFBC7;
+  padding: 10px;
 }
 
-.icon {
-  margin: 0;
-  color: #202020;
+.sidebarList {
+  list-style: none;
+  padding: 0.5rem;
+}
+
+.sidebarListItem {
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.sidebarListItem.active,
+.sidebarListItem:hover {
+  background-color: rgb(212, 209, 235);
+}
+
+/* Sidebar 구현 */
+.container {
+  display: flex;
+}
+
+.others {
+  flex: 4;
+  text-align: center;
 }
