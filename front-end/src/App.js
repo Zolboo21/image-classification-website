@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="App">
       <Main />
-      <Sidebar />
+      <Sidebar width={320}>
+        <Contact />
+      </Sidebar>
       <Result />
     </div>
   );

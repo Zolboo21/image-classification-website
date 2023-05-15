@@ -1,44 +1,55 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./slick.css";
-import "./slick-theme.css";
+import React, { useEffect, useRef, useState } from "react";
+import styles from "./sidebar.module.css";
 
-import React, { Component } from "react";
-import Slider from "react-slick";
 
-export default class SimpleSlider extends Component {
-    render() {
-        const settings = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1
-        };
-        return (
-            <div>
-                <h2> Single Item</h2>
-                <Slider {...settings}>
-                    <div>
-                        <h3>1</h3>
-                    </div>
-                    <div>
-                        <h3>2</h3>
-                    </div>
-                    <div>
-                        <h3>3</h3>
-                    </div>
-                    <div>
-                        <h3>4</h3>
-                    </div>
-                    <div>
-                        <h3>5</h3>
-                    </div>
-                    <div>
-                        <h3>6</h3>
-                    </div>
-                </Slider>
-            </div>
-        );
+const Sidebar = ({ width = 280, children }) => {
+    const [isOpen, setOpen] = useState(false);
+    const [xPosition, setX] = useState(-width);
+    const side = useRef();
+
+    // button 클릭 시 토글
+    const toggleMenu = () => {
+        if (xPosition < 0) {
+            setX(0);
+            setOpen(true);
+        } else {
+            setX(-width);
+            setOpen(false);
+        }
+    };
+
+    // 사이드바 외부 클릭시 닫히는 함수
+    const handleClose = async e => {
+        let sideArea = side.current;
+        let sideCildren = side.current.contains(e.target);
+        if (isOpen && (!sideArea || !sideCildren)) {
+            await setX(-width);
+            await setOpen(false);
+        }
     }
-}
+
+    useEffect(() => {
+        window.addEventListener('click', handleClose);
+        return () => {
+            window.removeEventListener('click', handleClose);
+        };
+    })
+
+
+    return (
+        <div className={styles.container}>
+            <div ref={side} className={styles.sidebar} style={{ width: `${width}px`, height: '100%', transform: `translatex(${-xPosition}px)` }}>
+                <button onClick={() => toggleMenu()}
+                    className={styles.button} >
+                    {isOpen ?
+                        <span>X</span> : <img src="images/avatar.png" alr="contact open button" className={styles.openBtn} />
+                    }
+                </button>
+                <div className={styles.content}>{children}</div> //사이드바 컴포넌트 내부 값이 구현되는 위치
+            </div>
+        </div>
+    );
+};
+
+
+export default Sidebar;
