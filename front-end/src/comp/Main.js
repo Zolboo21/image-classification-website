@@ -69,8 +69,6 @@ function Main() {
       ))}
 
      </div>
-
-   
     </div>
     </>
   );
