@@ -15,7 +15,7 @@ body {
 
 body {
   font-family: 'Rocher';
-  font-size: 50px;
+  font-size: 20px;
 }
 
 
@@ -52,8 +52,8 @@ body {
 
 
 .drag-container {
-  margin: 20px 0 20px 20px;
-  width: 1500px;
+  margin: 20px 0 0 0;
+  width: 700px;
   display: flex;
   flex-direction: column; /* Updated */
   align-items: flex-start;
@@ -61,6 +61,7 @@ body {
   padding: 20px;
 }
 .content-container {
+
   display: flex;
   flex-direction: row; /* Updated */
   align-items: flex-start;
@@ -72,23 +73,24 @@ body {
 
 .dropzone {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center; /* Change from 'flex-start' to 'center' */
   align-items: center;
-  width: 100%;
-  max-width: 300px; /* Adjust the max-width as needed */
+  width: 800%;
+  max-width: 200px; /* Adjust the max-width as needed */
   height: 200px;
-  margin: 0 auto;
+  margin-top: 10px;
   border: 2px dashed #5f1be6;
-  border-radius: 10px;
+  border-radius: 100px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
 
 
+
 .dropzone p {
+  text-align: center;
   margin: 0;
   font-size: 1.2rem;
-  color: #fff;
 }
 
 .dragging .dropzone {
@@ -211,7 +213,7 @@ Main {
 }
 .container-left{
   margin-top: 100px;
-  margin-left: 100px;
+  margin-left: 50px;
   flex: 1;
 
   height: calc(100vh);

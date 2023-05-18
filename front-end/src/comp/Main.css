@@ -128,8 +128,7 @@ h6 {
   padding-inline: var(--container-padding-horizontal);
   display: grid;
   place-items: right;
-  height: 100%;
-  margin-right: 300px; /* Adjust the margin value as needed */
+  margin-right: 400px; /* Adjust the margin value as needed */
 }
 
 
@@ -154,7 +153,7 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 61.2vh;
+  height: 51.2vh;
   padding-top: 12vh; /* Adjust the padding-top value as needed */
 }
 
@@ -213,14 +212,14 @@ h6 {
 .instagram {
 
   --pading-horizontal: 16px;
-  --border: 1px solid var(--primary);
+  --border: 5px solid var(--primary);
   max-width: var(--max-width-post);
   width: 100%;
   border: var(--border);
   border-radius: 20px;
 }
 .instagram__header {
-  padding-block: 12px;
+  padding-block: 1px;
   border-bottom: var(--border);
 }
 .instagram__header figure {

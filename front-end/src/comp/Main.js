@@ -58,13 +58,13 @@ function Main() {
             <div className={dragging ? "dragging" : ""} onDrop={handleDrop} onDragOver={handleDragOver} onDragLeave={handleDragLeave}>
               <div className="drag-container">
                 <div className='purples'>
-                <h1 className="drag">Drop & Discover: Unleash Your Style with a Snap!</h1>
+                <h1 className="drag">Drop & Discover:Unleash Your Style with a Snap!</h1>
                 </div>
                 <div className="content-container">
-                <p className="grays">Welcome to Drop & Discover, where finding your perfect outfit is a breeze. Just drop an image, and in seconds, explore a curated selection of similar clothes. Revolutionize your wardrobe with a simple snap and embrace the power of technology. Get ready to unleash your style like never before! </p>
+                <p className="grays">Paragraphs are the building blocks of papers. Many students define paragraphs in terms of length: a paragraph is a group of at least five sentences, a paragraph is half a page long, etc. In reality, though, the unity and coherence of ideas among sentences is what constitutes a paragraph. A paragraph is defined as “a group of sentences or a single sentence that forms a unit” (Lunsford and Connors 116). Length and appearance do not determine whether a section in a paper is a paragraph. </p>
                 <div className="dropzone">
                   <div className="mint">
-                  <p>Drop an image here to search for similar images</p>
+                  <p>Drop an image here</p>
                   </div>
                 </div>
               </div>
