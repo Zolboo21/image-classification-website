@@ -1,6 +1,7 @@
 import './App.css';
 import Main from './comp/Main';
 import Sidebar from './comp/Sidebar';
+import {StyleSheet, Text, View} from 'react-native';
 
 function App() {
   return (
