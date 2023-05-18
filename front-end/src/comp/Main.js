@@ -53,7 +53,7 @@ function Main() {
   return (
     <>
       <div className={dragging ? "dragging" : ""} onDrop={handleDrop} onDragOver={handleDragOver} onDragLeave={handleDragLeave}>
-      <h1>Drag and Drop Image Search</h1>
+      <h1 className="container">Drag and Drop Image Search</h1>
       <div className="dropzone">
         <p>Drop an image here to search for similar images</p>
       </div>
@@ -62,13 +62,16 @@ function Main() {
       </div>
     </div>
     <div>
-     <div>
+     <div>a
+      
      {items.map((item,index) => (
         <img key={index} src={`http://210.115.229.250:5000/static/img/${item.class}/${item.path}`
       } alt={item.class} />
       ))}
-
+    a
      </div>
+
+   
     </div>
     </>
   );
