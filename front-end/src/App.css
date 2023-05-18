@@ -1,5 +1,6 @@
 body {
   background-image: url('./wall.jpg');
+  font-family: 'Rocher';
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -7,25 +8,82 @@ body {
 }
 
 
-h1 {
-  text-align: center;
-  color: #00bfff;
-  font-size: 2.5rem;
-  margin-top: 40px;
+@font-face {
+  font-family: 'Rocher';
+  src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
 }
+
+body {
+  font-family: 'Rocher';
+  font-size: 50px;
+}
+
+
+
+@font-palette-values --Grays {
+  font-family: Rocher;
+  base-palette: 9;
+}
+
+@font-palette-values --Purples {
+  font-family: Rocher;
+  base-palette: 6;
+}
+
+@font-palette-values --Mint {
+  font-family: Rocher;
+  base-palette: 7;
+}
+
+.grays {
+  font-palette: --Grays;
+}
+
+.purples {
+  font-palette: --Purples;
+}
+
+.mint {
+  font-palette: --Mint;
+}
+
+
+
+
+
+.drag-container {
+  margin: 20px 0 20px 20px;
+  width: 1500px;
+  display: flex;
+  flex-direction: column; /* Updated */
+  align-items: flex-start;
+  height: 100%;
+  padding: 20px;
+}
+.content-container {
+  display: flex;
+  flex-direction: row; /* Updated */
+  align-items: flex-start;
+}
+.content-container > p {
+  flex: 1;
+}
+
 
 .dropzone {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  width: 300px;
+  width: 100%;
+  max-width: 300px; /* Adjust the max-width as needed */
   height: 200px;
   margin: 0 auto;
-  border: 2px dashed #00bfff;
+  border: 2px dashed #5f1be6;
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
+
 
 .dropzone p {
   margin: 0;
@@ -70,7 +128,7 @@ img:hover {
 
 .image {
   margin: 0 auto;
-  border: 1px solid #00bfff;
+  border: 1px solid #543ad7;
   border-radius: 10px;
   max-width: 100%;
 }
@@ -87,25 +145,11 @@ img:hover {
   clear: both;
 }
 
-
-/* result.css */
-.image-frame {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-}
-
-.image {
-  margin: 0 auto;
-  border: 1px solid black;
-}
-
 /* Sidebar.css */
 .sidebar {
   flex: 1;
   height: calc(100vh);
-  background-color: #F4F692;
-
+  background-color: #3221c9;
   position: sticky;
   top: 50px;
 }
@@ -122,7 +166,7 @@ img:hover {
 .sidebarTitle {
   font-size: 0.9rem;
   color: rgb(22, 11, 11);
-  background-color: #FAFBC7;
+  background-color: #391dda;
   padding: 10px;
 }
 
@@ -144,6 +188,8 @@ img:hover {
   background-color: rgb(212, 209, 235);
 }
 
+
+
 /* Sidebar 구현 */
 .container {
   display: flex;
@@ -157,4 +203,23 @@ Sidebar {
 Main {
   flex: 4;
   flex-direction: 'row';
+}
+
+.parent{
+  display: flex;
+ justify-content: space-between;
+}
+.container-left{
+  margin-top: 100px;
+  margin-left: 100px;
+  flex: 1;
+
+  height: calc(100vh);
+}
+.container-right{
+  margin-top: 70px;
+  margin-right: 100px;
+  flex: 1;
+
+  height: calc(100vh);
 }

@@ -118,14 +118,20 @@ h6 {
   margin: 0;
 }
 
+
+
+
 .container {
+  float: right;
   --container-padding-horizontal: 32px;
   position: relative;
   padding-inline: var(--container-padding-horizontal);
   display: grid;
-  place-items: center;
+  place-items: right;
   height: 100%;
+  margin-right: 300px; /* Adjust the margin value as needed */
 }
+
 
 .carousel {
   pointer-events: none;
@@ -147,12 +153,16 @@ h6 {
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 61.2vh;
+  padding-top: 12vh; /* Adjust the padding-top value as needed */
 }
+
+
 .carousel .item {
   position: absolute;
   max-width: 418px;
-  height: 100%;
+  height: 50%;
   margin-inline: var(--container-padding-horizontal);
   opacity: 0;
   will-change: transform, opacity;
@@ -193,6 +203,7 @@ h6 {
           animation-delay: calc(-3.8571428571s * 2);
 }
 .carousel img {
+  
   max-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -200,6 +211,7 @@ h6 {
 }
 
 .instagram {
+
   --pading-horizontal: 16px;
   --border: 1px solid var(--primary);
   max-width: var(--max-width-post);
@@ -232,7 +244,7 @@ h6 {
 }
 .instagram__media .img {
   max-width: 100%;
-  height: 61.2vh;
+  height: 30.2vh;
 }
 .instagram__buttons {
   padding-block: 12px;
@@ -276,3 +288,21 @@ h6 {
 .instagram__icon--saved path {
   stroke-width: 2;
 }
+
+.float{
+  float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

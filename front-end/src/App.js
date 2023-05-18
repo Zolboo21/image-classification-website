@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <div className="conatiner">
           <Main />
+
         {/* <Sidebar /> */}
         <div className="others">
         </div>
