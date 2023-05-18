@@ -62,13 +62,11 @@ function Main() {
       </div>
     </div>
     <div>
-     <div>a
-      
+     <div>
      {items.map((item,index) => (
         <img key={index} src={`http://210.115.229.250:5000/static/img/${item.class}/${item.path}`
       } alt={item.class} />
       ))}
-    a
      </div>
 
    
