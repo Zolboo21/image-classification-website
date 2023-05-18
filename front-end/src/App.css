@@ -110,7 +110,7 @@ img:hover {
 }
 
 /* Sidebar 구현 */
-.sidebar {
+Sidebar {
   flex: 1;
 }
 
