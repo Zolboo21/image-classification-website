@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <div className="conatiner">
           <Main />
-        <Sidebar />
+        {/* <Sidebar /> */}
         <div className="others">
         </div>
       </div>

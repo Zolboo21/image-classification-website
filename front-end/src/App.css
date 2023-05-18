@@ -1,9 +1,17 @@
 body {
+  background-image: url('./wall.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   font-family: Arial, sans-serif;
 }
 
+
 h1 {
   text-align: center;
+  color: #00bfff;
+  font-size: 2.5rem;
+  margin-top: 40px;
 }
 
 .dropzone {
@@ -13,8 +21,8 @@ h1 {
   width: 300px;
   height: 200px;
   margin: 0 auto;
-  border: 2px dashed #999;
-  border-radius: 5px;
+  border: 2px dashed #00bfff;
+  border-radius: 10px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -22,12 +30,12 @@ h1 {
 .dropzone p {
   margin: 0;
   font-size: 1.2rem;
-  color: #999;
+  color: #fff;
 }
 
 .dragging .dropzone {
-  border-color: #4CAF50;
-  background-color: rgba(76, 175, 80, 0.1);
+  border-color: #00bfff;
+  background-color: rgba(0, 191, 255, 0.1);
 }
 
 .image-container {
@@ -38,18 +46,45 @@ h1 {
 }
 
 img {
-  width: 300px;
-  height: 200px;
+  width: 250px;
+  height: 160px;
   margin: 10px;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 6px rgba(0, 191, 255, 0.5);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 img:hover {
   transform: scale(1.05);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 12px rgba(0, 191, 255, 0.8);
+}
+
+.image-frame {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.image {
+  margin: 0 auto;
+  border: 1px solid #00bfff;
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container::after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
 
