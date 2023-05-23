@@ -19,7 +19,7 @@ function Main() {
       try {
         const formData = new FormData();
         formData.append("filepath", dataURItoBlob(base64data), file.name);
-        const response = await axios.post('http://210.115.229.250:5000/process_image', formData);
+        const response = await axios.post('https://hluoslab.dev/process_image', formData);
         console.log(response.data);
         setItems(response.data);
       } catch (error) {
