@@ -7,7 +7,7 @@ The dataset currently contains ten images of different dog breeds. You can also 
 1. Make sure you have Weaviate installed and set up. [Check out the documentation](https://weaviate.io/developers/weaviate/current/installation/index.html) for more information!
 2. Run the docker file 
     ```bash
-    docker compose up
+    docker compose upzzz
     ```
 3. Run the schema file
     ```bash
