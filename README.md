@@ -44,17 +44,11 @@ We aim to experiment with creating a closed-source similar image site to provide
 
 ### I. Front-end
 
-#### 1. Bootstrap-based Menu Bar
-![Menu Bar](placeholder_image)
+#### 1. Version 1 - Bootstrap-based Menu Bar and Main Window UI
+![Version 1](placeholder_image)
 
-#### 2. Main Window UI
-![Main Window](placeholder_image)
-
-#### 3. Result Images Display
-![Result Images](placeholder_image)
-
-#### 4. Modal Window
-![Modal Window](placeholder_image)
+#### 2. Version 2 - Improved User Interface with Result Images Display and Modal Window
+![Version 2](placeholder_image)
 
 ### II. Back-end and API Communication
 
@@ -88,3 +82,4 @@ We aim to experiment with creating a closed-source similar image site to provide
 - Running the server. (python flask-app/application.py)
 
 ---
+
