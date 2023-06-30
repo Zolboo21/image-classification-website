@@ -1,4 +1,4 @@
-<p align="left">(<a href="#">Go back</a>)</p>
+<p align="left">(<a href="https://github.com/Zolboo21/image-classification-website">Go back</a>)</p>
 
 # Team Introduction
 
