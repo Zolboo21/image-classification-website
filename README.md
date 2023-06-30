@@ -59,7 +59,8 @@ The Similar Fashion Image Recommendation project is inspired by the similar imag
 
 Gmarket App introduced the Similar Image Recommendation feature in May 2022. Instead of showing identical product images, this feature displays visually similar images to help users discover products more easily.
 
-![Similar Image Recommendation](placeholder_image)
+[![Gmarket](images/Gmarket.png)](https://dev.gmarket.com/57)
+
 
 We aim to experiment with creating a closed-source similar image site to provide users with fast and easy access to visually similar fashion images.
 
