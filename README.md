@@ -5,16 +5,45 @@
 <!-- INTRO -->
 
 <p align="center">
-  <img src="images/logo1.png" alt="Project Logo" width="350">
+  <img src="images/logo1.png" alt="Project Logo" width="250">
 <h3 align="center">Similar Fashion Image Recommendation</h2>
 </p>
 
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Project Architecture](#project-architecture)
-- [Technology Stack](#technology-stack)
-- [Implemented Features](#implemented-features)
+  <p align="center">
+    <a href="http://210.115.229.250:3000/#">Website</a>
+    ·
+    <a href="https://github.com/Zolboo21/image-classification-website/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/">Team members</a>
+  </p>
 
+<!-- ############################################################# TABLE OF CONTENTS ################################################################## -->
+
+
+
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#project-overview">Project Overview</a>
+    </li>
+    <li>
+      <a href="#project-architecture">Project Architecture</a>
+    </li>
+    <li>
+      <a href="#technology-stack">Technology Stack</a>
+    </li>
+    <li>
+      <a href="#implemented-features">Implemented Features</a>
+    </li>
+  </ol>
+</details>
+
+
+
+
+
+## Project Overview
 
 <p align="center">
   <img src="images/Project_Preview.png" alt="Project Preview" width="600">
@@ -23,9 +52,6 @@
 <p align="center">
   <strong>Enhance product discovery with visually similar fashion images.</strong>
 </p>
-
-
-## Project Overview
 
 The Similar Fashion Image Recommendation project is inspired by the similar image recommendation feature in Gmarket. The goal is to overcome the limitations of existing deep learning-based image classification, such as execution time, cost, and disk storage.
 
