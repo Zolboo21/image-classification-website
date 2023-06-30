@@ -14,7 +14,7 @@
     ·
     <a href="https://github.com/Zolboo21/image-classification-website/issues">Report Bug</a>
     ·
-    <a href="https://github.com/">Team members</a>
+    <a href="https://github.com/Zolboo21/image-classification-website/blob/main/Team.md">Team members</a>
   </p>
 
 <!-- ############################################################# TABLE OF CONTENTS ################################################################## -->
