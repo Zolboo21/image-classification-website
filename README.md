@@ -1,7 +1,7 @@
 <h1 align="center">Similar Fashion Image Recommendation</h1>
 
 <p align="center">
-  <img src="placeholder_image" alt="Project Preview" width="600">
+  <img src="images/Project_Preview.png" alt="Project Preview" width="600">
 </p>
 
 <p align="center">
