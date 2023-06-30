@@ -1,4 +1,20 @@
-<h1 align="center">Similar Fashion Image Recommendation</h1>
+<a name="readme-top"></a>
+
+<p align="right">(<a href="#">한국어 버전으로 가기</a>)</p>
+
+<!-- INTRO -->
+
+<p align="center">
+  <img src="images/logo1.png" alt="Project Logo" width="350">
+<h3 align="center">Similar Fashion Image Recommendation</h2>
+</p>
+
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Project Architecture](#project-architecture)
+- [Technology Stack](#technology-stack)
+- [Implemented Features](#implemented-features)
+
 
 <p align="center">
   <img src="images/Project_Preview.png" alt="Project Preview" width="600">
@@ -8,11 +24,6 @@
   <strong>Enhance product discovery with visually similar fashion images.</strong>
 </p>
 
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Project Architecture](#project-architecture)
-- [Technology Stack](#technology-stack)
-- [Implemented Features](#implemented-features)
 
 ## Project Overview
 
@@ -26,7 +37,19 @@ Gmarket App introduced the Similar Image Recommendation feature in May 2022. Ins
 
 We aim to experiment with creating a closed-source similar image site to provide users with fast and easy access to visually similar fashion images.
 
+## Team
+
+- **John Doe** - Project Manager
+  ![John Doe](images/john_doe.jpg)
+  
+- **Jane Smith** - Backend Developer
+  ![Jane Smith](images/jane_smith.jpg)
+  
+- **Alex Johnson** - Frontend Developer
+  ![Alex Johnson](images/alex_johnson.jpg)
+
 ## Project Architecture
+
 
 <p align="center">
   <img src="placeholder_image" alt="Project Architecture" width="800">
