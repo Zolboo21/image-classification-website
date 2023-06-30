@@ -64,16 +64,6 @@ Gmarket App introduced the Similar Image Recommendation feature in May 2022. Ins
 
 We aim to experiment with creating a closed-source similar image site to provide users with fast and easy access to visually similar fashion images.
 
-## Team
-
-- **John Doe** - Project Manager
-  ![John Doe](images/john_doe.jpg)
-  
-- **Jane Smith** - Backend Developer
-  ![Jane Smith](images/jane_smith.jpg)
-  
-- **Alex Johnson** - Frontend Developer
-  ![Alex Johnson](images/alex_johnson.jpg)
 
 ## Project Architecture
 
