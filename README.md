@@ -46,7 +46,7 @@
 ## Project Overview
 
 <p align="center">
-  <img src="images/struc.png" alt="Project Preview" width="600">
+  <img src="images/Project_Preview.png" alt="Project Preview" width="600">
 </p>
 
 <p align="center">
@@ -77,16 +77,29 @@ We aim to experiment with creating a closed-source similar image site to provide
 
 
 <p align="center">
-  <img src="placeholder_image" alt="Project Architecture" width="800">
+  <img src="images/struc.png" alt="Project Architecture" width="800">
 </p>
 
 ## Technology Stack
 
-- Front-end: React (Web page UI, interface implementation)
-- Front-end: Figma (Web page UI, design prototyping)
-- Back-end: Flask (API communication with the server)
-- Back-end: Weaviate (Storing image datasets in a vector space using Docker)
-- Back-end: TensorFlow (Training image datasets using the TensorFlow CNN model)
+- Front-end: [React](https://reactjs.org/) ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+  - Web page UI
+  - Interface implementation
+
+- Front-end: [Figma](https://www.figma.com/) ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+  - Web page UI design prototyping
+
+- Back-end: [Flask](https://flask.palletsprojects.com/) ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+  - API communication with the server
+
+- Back-end: [Weaviate](https://www.semi.technology/developers/weaviate/current/) ![Weaviate](https://img.shields.io/badge/Weaviate-563D7C?style=for-the-badge&logo=weaviate&logoColor=white&labelColor=563D7C)
+  - Storing image datasets in a vector space using Docker
+
+- Back-end: [TensorFlow](https://www.tensorflow.org/) ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+  - Training image datasets using the TensorFlow CNN model
+
+- Docker ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+  - Containerization for efficient deployment
 
 ## Implemented Features
 
