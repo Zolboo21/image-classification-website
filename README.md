@@ -46,14 +46,22 @@
 ## Project Overview
 
 <p align="center">
-  <img src="images/Project_Preview.png" alt="Project Preview" width="600">
+  <img src="images/struc.png" alt="Project Preview" width="600">
 </p>
 
 <p align="center">
   <strong>Enhance product discovery with visually similar fashion images.</strong>
 </p>
 
-The Similar Fashion Image Recommendation project is inspired by the similar image recommendation feature in Gmarket. The goal is to overcome the limitations of existing deep learning-based image classification, such as execution time, cost, and disk storage.
+Enhance product discovery with visually similar fashion images. The Similar Fashion Image Recommendation project utilizes advanced deep learning techniques, including CNN algorithms, to overcome the limitations of existing image classification methods. Our web-based system provides users with visually similar fashion images, revolutionizing the way products are discovered.
+
+Inspired by the similar image recommendation feature in Gmarket, our project focuses on improving execution time, cost, and disk storage requirements. We employ a vector database to efficiently store and retrieve image features. Docker containerization ensures scalability and easy deployment across platforms.
+
+The backend is built using Python Flask, providing a flexible and robust framework for API implementation. React powers the frontend, delivering an interactive and responsive user interface. Figma is used for design collaboration, ensuring a visually appealing and user-friendly experience.
+
+Our system leverages TensorFlow, a powerful library for deep learning. We develop and fine-tune CNN models to achieve high accuracy in image classification. With our solution, users can effortlessly explore visually similar fashion images, enhancing their shopping experience.
+
+<hr>
 
 ### What is Similar Image Recommendation?
 
