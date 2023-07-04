@@ -14,7 +14,7 @@
     ·
     <a href="https://github.com/Zolboo21/image-classification-website/issues">버그 신고</a>
     ·
-    <a href="https://github.com/Zolboo21/image-classification-website/blob/main/Team.md">팀 구성원</a>
+    <a href="https://github.com/Zolboo21/image-classification-website/blob/main/teamkr.md">팀 구성원</a>
   </p>
 
 <!-- ############################################################# TABLE OF CONTENTS ################################################################## -->
