@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-<p align="right">(<a href="#">Go to English version</a>)</p>
+<p align="right">(<a href="https://github.com/Zolboo21/image-classification-website/blob/main/README.md">Go to English version</a>)</p>
 
 <!-- INTRO -->
 
