@@ -1,4 +1,4 @@
-<p align="left">(<a href="https://github.com/Zolboo21/image-classification-website">뒤로 가기</a>)</p>
+<p align="left">(<a href="https://github.com/Zolboo21/image-classification-website/blob/main/readmekr.md">뒤로 가기</a>)</p>
 
 # 팀 소개
 
