@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-<p align="right">(<a href="#">한국어 버전으로 가기</a>)</p>
+<p align="right">(<a href="https://github.com/Zolboo21/image-classification-website/blob/main/readmekr.md">한국어 버전으로 가기</a>)</p>
 
 <!-- INTRO -->
 
