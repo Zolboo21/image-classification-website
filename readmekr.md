@@ -114,8 +114,21 @@ G마켓 앱은 2022년 5월에 유사 이미지 추천 기능을 도입했습니
 ### II. 백엔드 및 API 통신
 
 #### 1. 요청 함수
-![요청 함수](placeholder_image)
 
+    fetch('http://{HOST_IP_ADDRESS}:5000/process_image', {
+      method: 'POST',
+      body: data,
+    })
+      .then(response => response.json())
+      .then(data => {
+          setDivContent('');
+          setProcessedData(data);
+          setHideList(false);
+      })
+      .catch(error => {
+        console.log('Error sending image: ', error);
+      });
+  
 #### 2. 응답 함수
 - 요청의 본문에서 데이터를 읽어와 이미지 데이터를 CNN 모델에 전달하여 레이블 예측 수행.
 ![응답 함수](placeholder_image)
