@@ -132,58 +132,58 @@ G마켓 앱은 2022년 5월에 유사 이미지 추천 기능을 도입했습니
 #### 2. 응답 함수
 - 요청의 본문에서 데이터를 읽어와 이미지 데이터를 CNN 모델에 전달하여 레이블 예측 수행.
 
-    @app.route("/process_image", method=["POST"])
-    def process_image():
-      uploaded_file = Image.open(request.files['filepath'].stream)   # request 이미지 파일
-      setting = json.loads(request.form['setting'])                  # request 요청 값
-      output_limit = setting['output_limit']                         # 최대 출력 갯수
+      @app.route("/process_image", method=["POST"])
+        def process_image():
+        uploaded_file = Image.open(request.files['filepath'].stream)   # request 이미지 파일
+        setting = json.loads(request.form['setting'])                  # request 요청 값
+        output_limit = setting['output_limit']                         # 최대 출력 갯수
 
-      buffer = BytesIO()
-      uploaded_file.save(buffer, format="JPEG")
-      img_str = base64.b64encoded(buffer.getvalue()).decode()
+        buffer = BytesIO()
+        uploaded_file.save(buffer, format="JPEG")
+        img_str = base64.b64encoded(buffer.getvalue()).decode()
 
-      # TODO: cnn model to predict the breed of the closet image
-      model_dir = "{HOST_ABSOLUTE_PATH}"
-      model_filename = "{MODEL_FILE_NAME}.h5"
-      model_path = os.path.join(model_dir, model_filename)
+        # TODO: cnn model to predict the breed of the closet image
+        model_dir = "{HOST_ABSOLUTE_PATH}"
+        model_filename = "{MODEL_FILE_NAME}.h5"
+        model_path = os.path.join(model_dir, model_filename)
 
-      model = tf.keras.models.load_model(os.path.abspath(model_path))    
+        model = tf.keras.models.load_model(os.path.abspath(model_path))    
 
-      img = tf.keras.preprocessing.image.img_to_array(uploaded_file)
-      img = tf.keras.applications.xception.preprocess_input(img)
-      img = np.expand_dims(img, axis=0)
-      preds = model.predict(img)                      # 모델 예측
-      preds2 = np.squeeze(preds)
-      predicted_class_index = np.argmax(preds2)
-        ...
-        ...
-      weaviate_results = weaviate_img_search(img_str, label, label2, output_limit)
+        img = tf.keras.preprocessing.image.img_to_array(uploaded_file)
+        img = tf.keras.applications.xception.preprocess_input(img)
+        img = np.expand_dims(img, axis=0)
+        preds = model.predict(img)                      # 모델 예측
+        preds2 = np.squeeze(preds)
+        predicted_class_index = np.argmax(preds2)
+          ...
+          ...
+        weaviate_results = weaviate_img_search(img_str, label, label2, output_limit)
 
-      results=[]
-      for result in weaviate_results:
-          results.append({
-             "path": result["filepath"],
-             "class": result["class"]   
-       })
+        results=[]
+        for result in weaviate_results:
+            results.append({
+               "path": result["filepath"],
+               "class": result["class"]   
+         })
 
-      return results               
+        return results               
       
 #### 3. 벡터 데이터베이스
 - 입력 쿼리 이미지 및 레이블을 기반으로 유사한 이미지 결과를 Weaviate의 벡터 데이터베이스에서 검색.
 
-    def weaviate_img_search(img_str, label, label2, output_limit=12):
-        sourceImage = {"image": img_str}
+      def weaviate_img_search(img_str, label, label2, output_limit=12):
+          sourceImage = {"image": img_str}
 
-        try:
-            weaviate_results = client.query.get(
-                label, ["filepath", "class"]
-            ).with_near_image(
-                sourceImage, encode=False
-            ).with_limit(output_cnt).do()
+          try:
+              weaviate_results = client.query.get(
+                  label, ["filepath", "class"]
+              ).with_near_image(
+                  sourceImage, encode=False
+              ).with_limit(output_cnt).do()
 
-            retyrb weaviate_results["data"]["Get"][label2]
-        except KeyError:
-            return []
+              retyrb weaviate_results["data"]["Get"][label2]
+          except KeyError:
+              return []
 
 #### 4. 서버 설정
 - 다음 단계를 따라 서버 시작:
