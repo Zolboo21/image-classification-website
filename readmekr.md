@@ -188,11 +188,9 @@ G마켓 앱은 2022년 5월에 유사 이미지 추천 기능을 도입했습니
 #### 4. 서버 설정
 - 다음 단계를 따라 서버 시작:
   - Weaviate를 실행하기 위해 Docker를 실행.
+      
   - 이미지 정보에 대한 스키마 정의.
   - 모든 이미지를 base64 형식으로 변환하여 Weaviate에 import.
-
-1. Weaviate를 설치하고 설정해야 한다.
-2. backend
 
 - Docker Desktop에서 실행 중인 Weaviate.
 ![Weaviate 실행](placeholder_image)
