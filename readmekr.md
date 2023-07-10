@@ -203,6 +203,10 @@ G마켓 앱은 2022년 5월에 유사 이미지 추천 기능을 도입했습니
   - 인코딩된 이미지들을 weaviate에 업로드.
 
         python upload-data-objects.py
+    
+  - 서버 실행.
+    
+        python flask-app/application.py 
 
 - Docker Desktop에서 실행 중인 Weaviate.
 ![Weaviate 실행](placeholder_image)
