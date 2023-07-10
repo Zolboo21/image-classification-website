@@ -113,7 +113,7 @@ G마켓 앱은 2022년 5월에 유사 이미지 추천 기능을 도입했습니
 
 ### II. 백엔드 및 API 통신
 
-#### 1. 요청 함수
+#### 1. 요청 함수 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 
     fetch('http://{HOST_IP_ADDRESS}:5000/process_image', {
       method: 'POST',
@@ -129,7 +129,7 @@ G마켓 앱은 2022년 5월에 유사 이미지 추천 기능을 도입했습니
         console.log('Error sending image: ', error);
       });
   
-#### 2. 응답 함수
+#### 2. 응답 함수 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 - 요청의 본문에서 데이터를 읽어와 이미지 데이터를 CNN 모델에 전달하여 레이블 예측 수행.
 
       @app.route("/process_image", method=["POST"])
@@ -168,7 +168,7 @@ G마켓 앱은 2022년 5월에 유사 이미지 추천 기능을 도입했습니
 
         return results               
       
-#### 3. 벡터 데이터베이스
+#### 3. 벡터 데이터베이스 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white) ![Weaviate](https://img.shields.io/badge/Weaviate-563D7C?style=for-the-badge&logo=weaviate&logoColor=white&labelColor=563D7C)
 - 입력 쿼리 이미지 및 레이블을 기반으로 유사한 이미지 결과를 Weaviate의 벡터 데이터베이스에서 검색.
 
       def weaviate_img_search(img_str, label, label2, output_limit=12):
