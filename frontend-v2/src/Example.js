@@ -20,6 +20,7 @@ function Example() {
     const [showUpload, setShowUpload] = useState(false); // 추가된 상태 변수 가리기용
 
     const [resultCount, setResultCount] = useState(12);  // 결과 이미지 출력 갯수
+    const [onCNN, setOnCNN] = useState(true);  // CNN 사용 여부
 
     const [inputImage, setInputImage] = useState(null);  // 유저가 첨부한 이미지
 
@@ -48,6 +49,18 @@ function Example() {
         setResultCount(Number(value));
     }
 
+    // CNN 사용 여부를 변경하는 함수
+    const handleCNNButtonClick = () => {
+        let onCnn = document.getElementById("on-cnn").checked;
+        if(onCnn){
+            setOnCNN(true);
+        }else{
+            setOnCNN(false);
+        }
+    }
+
+
+
     // 이미지를 서버로 전송하는 함수
     const handleImageSend = () => {
         setDivContent(<div style={{'text-align': "center"}}>
@@ -61,7 +74,10 @@ function Example() {
             const blob = dataURItoBlob(croppedImage);
             data.append('filepath', blob, 'croppedImage.jpg');
 
-            const setting = {output_limit: resultCount}; // 보낼 JSON 데이터
+            const setting = {
+                output_limit: resultCount,
+                on_cnn: onCNN
+            }; // 보낼 JSON 데이터
             data.append('setting', JSON.stringify(setting));
 
 
@@ -292,11 +308,20 @@ function Example() {
 
             <Modal show={show3} onHide={handleClose3}>
                 <Modal.Header>
-                    <Modal.Title>추출 이미지 개수 지정</Modal.Title>
+                    <Modal.Title>옵션</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    <p>출력할 이미지 개수 지정</p>
                     <input type="number" id="input" onChange={handleResultCountChange}></input>
                     <button onClick={handleButtonClick}>change</button>
+                    <br/>
+                    <p>현재 설정된 값: {resultCount}</p>
+                    <p>cnn-model 적용 여부 지정</p>
+                    <input type="radio" id="on-cnn" name="cnn" value="cnn 적용" defaultChecked={true}></input>
+                    <label htmlFor="on-cnn">cnn 적용</label>
+                    <input type="radio" id="off-cnn" name="cnn" value="cnn 미적용" ></input>
+                    <label htmlFor="off-cnn">cnn 미적용</label>
+                    <button onClick={handleCNNButtonClick}>change</button>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button className="btn_close" variant="secondary" onClick={handleClose3}>
