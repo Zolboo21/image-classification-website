@@ -18,6 +18,7 @@ client = weaviate.Client(WEAVIATE_URL)
 #     client.schema.delete_class(class_name='Jumper')
 #     client.schema.delete_class(class_name='Shirts')
 #     client.schema.delete_class(class_name='Sweater')
+#     client.schema.delete_class(class_name='All')
 # except UnexpectedStatusCodeException as e:
 #     print(f"Error deleting class: {e}")
 
@@ -178,6 +179,36 @@ schema = {
         {
             "class": "Sweater",
             "description": "Images of different sweaters",
+            "moduleConfig": {
+                "img2vec-neural": {
+                    "imageFields": [
+                        "image"
+                    ]
+                }
+            },
+            "vectorIndexType": "hnsw",
+            "vectorizer": "img2vec-neural",  # the img2vec-neural Weaviate module
+            "properties": [
+                {
+                    "name": "image",
+                    "dataType": ["blob"],
+                    "description": "image",
+                },
+                {
+                    "name": "filepath",
+                    "dataType": ["string"],
+                    "description": "filepath of the images",
+                },
+                {
+                    "name": "class",
+                    "dataType": ["string"],
+                    "description": "class of the images",
+                }
+            ]
+        },
+        {
+            "class": "All",
+            "description": "Images of different all clothes",
             "moduleConfig": {
                 "img2vec-neural": {
                     "imageFields": [
