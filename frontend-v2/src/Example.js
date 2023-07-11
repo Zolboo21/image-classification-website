@@ -81,7 +81,7 @@ function Example() {
             data.append('setting', JSON.stringify(setting));
 
 
-            fetch(`http://210.115.229.250:5000/process_image`, {
+            fetch(`http://{YOUR_HOST_ADDRESS}:5000/process_image`, {
                 method: 'POST',
                 body: data,
             })
