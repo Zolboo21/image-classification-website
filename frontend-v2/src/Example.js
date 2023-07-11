@@ -235,7 +235,7 @@ function Example() {
                                         <div id="{key}" className="col-md-4 col-lg-2 col-12">
                                             <div className="card">
                                                 <img style={{"height": "200px"}}
-                                                     src={`http://210.115.229.250:5000/static/img/${item.class}/${item.path}`}
+                                                     src={`http://{YOUR_HOST_ADDRESS}:5000/static/img/${item.class}/${item.path}`}
                                                      alt={'img'}/>
                                             </div>
                                             <br/>
