@@ -38,6 +38,24 @@ def weaviate_img_search(img_str, label, label2, output_cnt=12):
         return []
 
 
+def weaviate_img_search_noCnn(img_str, output_cnt=12):
+    """
+    This function uses the nearImage operator in Weaviate.
+    """
+    sourceImage = {"image": img_str}
+
+    try:
+        weaviate_results = client.query.get(
+            "all", ["filepath", "class"]
+        ).with_near_image(
+            sourceImage, encode=False
+        ).with_limit(output_cnt).do()
+
+        return weaviate_results["data"]["Get"]["All"]
+    except KeyError:
+        return []
+
+
 if client.is_ready():
     # Defining the pages that will be on the website 
     @app.route("/")
@@ -52,45 +70,47 @@ if client.is_ready():
         setting = json.loads(request.form['setting'])
 
         output_limit = setting['output_limit']  # int
+        on_cnn = setting['on_cnn']              # boolean
 
         buffer = BytesIO()
         uploaded_file.save(buffer, format="JPEG")
         img_str = base64.b64encode(buffer.getvalue()).decode()
 
-        # TODO: cnn model to predict the breed of the closet image
-        model_dir = "C:/Windows/System32"
-        model_filename = "xception.h5"
-        model_path = os.path.join(model_dir, model_filename)
+        if on_cnn:
+            # TODO: cnn model to predict the breed of the closet image
+            model_dir = "C:/Windows/System32"
+            model_filename = "xception.h5"
+            model_path = os.path.join(model_dir, model_filename)
 
-        model = tf.keras.models.load_model(os.path.abspath(model_path))
+            model = tf.keras.models.load_model(os.path.abspath(model_path))
 
-        img = tf.keras.preprocessing.image.img_to_array(uploaded_file)
-        img = tf.keras.applications.xception.preprocess_input(img)
-        img = np.expand_dims(img, axis=0)
-        preds = model.predict(img)
-        preds2 = np.squeeze(preds)  # 불필요한 차원 제거
-        predicted_class_index = np.argmax(preds2)
-        if (predicted_class_index == 0):
-            label = "coat"
-            label2 = "Coat"
-        elif (predicted_class_index == 1):
-            label = "dress"
-            label2 = "Dress"
-        elif (predicted_class_index == 2):
-            label = "hood"
-            label2 = "Hood"
-        elif (predicted_class_index == 3):
-            label = "jumper"
-            label2 = "Jumper"
-        elif (predicted_class_index == 4):
-            label = "shirts"
-            label2 = "Shirts"
+            img = tf.keras.preprocessing.image.img_to_array(uploaded_file)
+            img = tf.keras.applications.xception.preprocess_input(img)
+            img = np.expand_dims(img, axis=0)
+            preds = model.predict(img)
+            preds2 = np.squeeze(preds)  # 불필요한 차원 제거
+            predicted_class_index = np.argmax(preds2)
+            if (predicted_class_index == 0):
+                label = "coat"
+                label2 = "Coat"
+            elif (predicted_class_index == 1):
+                label = "dress"
+                label2 = "Dress"
+            elif (predicted_class_index == 2):
+                label = "hood"
+                label2 = "Hood"
+            elif (predicted_class_index == 3):
+                label = "jumper"
+                label2 = "Jumper"
+            elif (predicted_class_index == 4):
+                label = "shirts"
+                label2 = "Shirts"
+            else:
+                label = "sweater"
+                label2 = "Sweater"
+            weaviate_results = weaviate_img_search(img_str, label, label2, output_limit)
         else:
-            label = "sweater"
-            label2 = "Sweater"
-
-        weaviate_results = weaviate_img_search(img_str, label, label2, output_limit)
-
+            weaviate_results = weaviate_img_search_noCnn(img_str, output_limit)
 
         results = []
         for result in weaviate_results:
