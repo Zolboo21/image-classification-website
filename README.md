@@ -114,33 +114,100 @@ We aim to experiment with creating a closed-source similar image site to provide
 ### II. Back-end and API Communication
 
 #### 1. Request Functions
-![Request Functions](placeholder_image)
+
+    fetch('http://{HOST_IP_ADDRESS}:5000/process_image', {
+      method: 'POST',
+      body: data,
+    })
+      .then(response => response.json())
+      .then(data => {
+          setDivContent('');
+          setProcessedData(data);
+          setHideList(false);
+      })
+      .catch(error => {
+        console.log('Error sending image: ', error);
+      });
 
 #### 2. Response Function
 - Reads the data from the request's body, performs label prediction by passing the image data to the CNN model.
-![Response Function](placeholder_image)
+
+      @app.route("/process_image", method=["POST"])
+        def process_image():
+        uploaded_file = Image.open(request.files['filepath'].stream)   # request 이미지 파일
+        setting = json.loads(request.form['setting'])                  # request 요청 값
+        output_limit = setting['output_limit']                         # 최대 출력 갯수
+
+        buffer = BytesIO()
+        uploaded_file.save(buffer, format="JPEG")
+        img_str = base64.b64encoded(buffer.getvalue()).decode()
+
+        # TODO: cnn model to predict the breed of the closet image
+        model_dir = "{HOST_ABSOLUTE_PATH}"
+        model_filename = "{MODEL_FILE_NAME}.h5"
+        model_path = os.path.join(model_dir, model_filename)
+
+        model = tf.keras.models.load_model(os.path.abspath(model_path))    
+
+        img = tf.keras.preprocessing.image.img_to_array(uploaded_file)
+        img = tf.keras.applications.xception.preprocess_input(img)
+        img = np.expand_dims(img, axis=0)
+        preds = model.predict(img)                      # 모델 예측
+        preds2 = np.squeeze(preds)
+        predicted_class_index = np.argmax(preds2)
+          ...
+          ...
+        weaviate_results = weaviate_img_search(img_str, label, label2, output_limit)
+
+        results=[]
+        for result in weaviate_results:
+            results.append({
+               "path": result["filepath"],
+               "class": result["class"]   
+         })
+
+        return results 
 
 #### 3. Vector Database
 - Uses Weaviate's vector database to retrieve similar image results based on the input query image and labels.
-![Vector Database](placeholder_image)
 
-#### 4. Server Setup
-- Started the server following these steps:
-  - Launched Docker to run Weaviate.
-  - Defined the schema for image information.
-  - Converted all images into base64 format and imported them into Weaviate.
-![Server Setup](placeholder_image)
+      def weaviate_img_search(img_str, label, label2, output_limit=12):
+          sourceImage = {"image": img_str}
 
-- Weaviate running on Docker Desktop.
-![Weaviate Running](placeholder_image)
+          try:
+              weaviate_results = client.query.get(
+                  label, ["filepath", "class"]
+              ).with_near_image(
+                  sourceImage, encode=False
+              ).with_limit(output_cnt).do()
 
-- Directory path where the images were stored as base64 versions.
-![Base64 Images Directory](placeholder_image)
+              retyrb weaviate_results["data"]["Get"][label2]
+          except KeyError:
+              return []
 
-- Imported all images into Weaviate. (Performed individually for each of the 6 image categories)
-![Importing Images](placeholder_image)
 
-- Running the server. (python flask-app/application.py)
+#### 4. Server Configuration
+- Follow the steps below to start the server:
+
+  - Run Docker to execute Weaviate.
+
+        docker compose up
+
+  - Define the schema for image information.
+
+        python create-schema.py
+
+  - Convert all images to base64 format and import them into Weaviate.
+
+        python images-to-base64.py
+
+  - Upload the encoded images to Weaviate.
+
+        python upload-data-objects.py
+
+  - Run the server.
+
+        python flask-app/application.py
 
 ---
 
