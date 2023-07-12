@@ -103,15 +103,8 @@ G마켓 앱은 2022년 5월에 유사 이미지 추천 기능을 도입했습니
 
 ## 구현된 기능
 
-### I. 프론트엔드
 
-#### 1. 버전 1 - 부트스트랩 기반의 메뉴 바 및 메인 창 UI
-![Version 1](placeholder_image)
-
-#### 2. 버전 2 - 결과 이미지 표시 및 모달 창이 포함된 개선된 사용자 인터페이스
-![Version 2](placeholder_image)
-
-### II. 백엔드 및 API 통신
+### I. 백엔드 및 API 통신
 
 #### 1. 요청 함수 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 
