@@ -101,17 +101,7 @@ We aim to experiment with creating a closed-source similar image site to provide
 - Docker ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
   - Containerization for efficient deployment
 
-## Implemented Features
-
-### I. Front-end
-
-#### 1. Version 1 - Bootstrap-based Menu Bar and Main Window UI
-![Version 1](placeholder_image)
-
-#### 2. Version 2 - Improved User Interface with Result Images Display and Modal Window
-![Version 2](placeholder_image)
-
-### II. Back-end and API Communication
+### I. Back-end and API Communication
 
 #### 1. Request Functions
 
